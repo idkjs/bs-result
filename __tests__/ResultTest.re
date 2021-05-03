@@ -344,10 +344,10 @@ describe("Result.Promise based utilities", () => {
   testPromise("return", () =>
     Result.Promise.return(42)
     |> Js.Promise.then_(actual => {
-        //  Js.log(ExnHandler.mapErrorToExn(actual))|>ignore;
+         //  Js.log(ExnHandler.mapErrorToExn(actual))|>ignore;
          Expect.expect(actual)
          |> Expect.toEqual(Result.return(42))
-         |> Js.Promise.resolve;
+         |> Js.Promise.resolve
        })
   );
   testPromise("return", () =>
