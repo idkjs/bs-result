@@ -323,7 +323,7 @@ describe("Basic Result Utilities", () => {
   });
   test("unsafeGet - Ok", () => {
     let actual =
-      try (Result.return(42) |> Result.unsafeGet) {
+      try(Result.return(42) |> Result.unsafeGet) {
       | UnsafeGetFailure(_) => 0
       };
     let expected = 42;
@@ -331,7 +331,7 @@ describe("Basic Result Utilities", () => {
   });
   test("unsafeGet - Error", () => {
     let actual =
-      try (Result.error(UnsafeGetFailure("bad")) |> Result.unsafeGet) {
+      try(Result.error(UnsafeGetFailure("bad")) |> Result.unsafeGet) {
       | UnsafeGetFailure(_) => 17
       };
     let expected = 17;
