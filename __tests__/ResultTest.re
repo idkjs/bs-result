@@ -340,13 +340,15 @@ describe("Basic Result Utilities", () => {
 });
 
 describe("Result.Promise based utilities", () => {
+  // open ExnHandler
   testPromise("return", () =>
     Result.Promise.return(42)
-    |> Js.Promise.then_(actual =>
+    |> Js.Promise.then_(actual => {
+        //  Js.log(ExnHandler.mapErrorToExn(actual))|>ignore;
          Expect.expect(actual)
          |> Expect.toEqual(Result.return(42))
-         |> Js.Promise.resolve
-       )
+         |> Js.Promise.resolve;
+       })
   );
   testPromise("return", () =>
     Result.Promise.return(42)
